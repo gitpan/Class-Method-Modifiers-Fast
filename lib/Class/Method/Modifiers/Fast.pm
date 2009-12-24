@@ -2,11 +2,11 @@ package Class::Method::Modifiers::Fast;
 use strict;
 use warnings;
 use Data::Util;
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 use base 'Exporter';
 our @EXPORT      = qw(before after around);
-our @EXPORT_OK   = @EXPORT;
+our @EXPORT_OK   = (@EXPORT, 'install_modifier');
 our %EXPORT_TAGS = (
     moose => [qw(before after around)],
     all   => \@EXPORT_OK,
@@ -14,7 +14,10 @@ our %EXPORT_TAGS = (
 
 use Carp 'confess';
 
-sub _install_modifier {
+sub _install_modifier; # -w
+*_install_modifier = \&install_modifier;
+
+sub install_modifier {
     my $into     = shift;
     my $type     = shift;
     my $modifier = pop;
