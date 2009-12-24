@@ -2,7 +2,7 @@ package Class::Method::Modifiers::Fast;
 use strict;
 use warnings;
 use Data::Util;
-our $VERSION = '0.04';
+our $VERSION = '0.041';
 
 use base 'Exporter';
 our @EXPORT      = qw(before after around);
@@ -153,6 +153,7 @@ You can use C<around> to:
 =head1 AUTHOR
 
 Takatoshi Kitano E<lt>kitano.tk@gmail.comE<gt>
+gfx
 
 =head1 SEE ALSO
 
